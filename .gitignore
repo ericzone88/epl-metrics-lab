@@ -1,0 +1,30 @@
+# ➤ Python bytecode cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ➤ System and IDE config files
+.DS_Store
+.idea/
+
+# ➤ Virtual environments (any name)
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# ➤ Auto-generated analysis outputs
+outputs/
+
+# ➤ Temporary or log files
+*.log
+*.swp
+*.tmp
+*.bak
+
+# ➤ Pytest / coverage cache
+.pytest_cache/
+.coverage
+.cache
