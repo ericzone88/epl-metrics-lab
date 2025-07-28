@@ -142,7 +142,7 @@ def plot_radar_chart(csv_filename, position_name, metrics):
 
 def plot_all_radars():
     plot_radar_chart(
-        "top_fw_players.csv",
+        "all_fw_players.csv",
         "Forward",
         [
             "g_minus_pkgls_per90_norm",
@@ -155,7 +155,7 @@ def plot_all_radars():
     )
 
     plot_radar_chart(
-        "top_mf_players.csv",
+        "all_mf_players.csv",
         "Midfielder",
         [
             "progression_prgp_norm",
@@ -168,7 +168,7 @@ def plot_all_radars():
     )
 
     plot_radar_chart(
-        "top_df_players.csv",
+        "all_df_players.csv",
         "Defender",
         [
             "performance_tklw_norm",

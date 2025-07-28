@@ -197,13 +197,13 @@ class DefenderScorer(TopPlayerFinder):
 
 # ---------------- Save to CSV ----------------
 def save_top_players_to_csv(df: pd.DataFrame, output_dir: str = "outputs"):
-    """Run scorer pipelines and save top 3 and full rankings for FW, MF, DF to CSV."""
+    """Run scorer pipelines and save full rankings for FW, MF, DF to CSV."""
 
     fw = ForwardScorer(df)
     fw.filter_players()
     fw.prepare_features()
     fw.compute_score()
-    top_fw = fw.top_n(3)[[
+    fw_all = fw.get_all_ranked([
         "player", "score",
         "g_minus_pkgls_per90_norm",
         "xggls_per90_norm",
@@ -211,18 +211,14 @@ def save_top_players_to_csv(df: pd.DataFrame, output_dir: str = "outputs"):
         "take_ons_succ_pct_norm",
         "carries_prgc_norm",
         "receiving_prgr_norm"
-    ]]
-    top_fw.to_csv(os.path.join(output_dir, "top_fw_players.csv"), index=False)
-
-    fw.get_all_ranked(top_fw.columns.tolist()).to_csv(
-        os.path.join(output_dir, "all_fw_players.csv"), index=False
-    )
+    ])
+    fw_all.to_csv(os.path.join(output_dir, "all_fw_players.csv"), index=False)
 
     mf = MidfielderScorer(df)
     mf.filter_players()
     mf.prepare_features()
     mf.compute_score()
-    top_mf = mf.top_n(3)[[
+    mf_all = mf.get_all_ranked([
         "player", "score",
         "progression_prgp_norm",
         "progression_prgr_norm",
@@ -230,18 +226,14 @@ def save_top_players_to_csv(df: pd.DataFrame, output_dir: str = "outputs"):
         "sca_sca90_norm",
         "touches_mid_3rd_norm",
         "performance_int_norm"
-    ]]
-    top_mf.to_csv(os.path.join(output_dir, "top_mf_players.csv"), index=False)
-
-    mf.get_all_ranked(top_mf.columns.tolist()).to_csv(
-        os.path.join(output_dir, "all_mf_players.csv"), index=False
-    )
+    ])
+    mf_all.to_csv(os.path.join(output_dir, "all_mf_players.csv"), index=False)
 
     df_sc = DefenderScorer(df)
     df_sc.filter_players()
     df_sc.prepare_features()
     df_sc.compute_score()
-    top_df = df_sc.top_n(3)[[
+    df_all = df_sc.get_all_ranked([
         "player", "score",
         "performance_tklw_norm",
         "performance_int_norm",
@@ -249,9 +241,5 @@ def save_top_players_to_csv(df: pd.DataFrame, output_dir: str = "outputs"):
         "aerialduels_won_pct_norm",
         "progression_prgp_norm",
         "err_norm"
-    ]]
-    top_df.to_csv(os.path.join(output_dir, "top_df_players.csv"), index=False)
-
-    df_sc.get_all_ranked(top_df.columns.tolist()).to_csv(
-        os.path.join(output_dir, "all_df_players.csv"), index=False
-    )
+    ])
+    df_all.to_csv(os.path.join(output_dir, "all_df_players.csv"), index=False)

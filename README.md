@@ -69,7 +69,6 @@ epl_metrics_lab/
 │
 ├── outputs/                   # Automatically generated outputs after running main.py
 │   ├── elo_history_all.csv
-│   ├── top_[pos]_players.csv
 │   ├── all_[pos]_players.csv
 │   ├── win_probability_forecast.csv
 │   ├── [team_name]_elo_trend.png
@@ -94,7 +93,6 @@ After running `main.py`, an `outputs/` folder will be created containing analysi
 Possible outputs include:
 
 - `elo_history_all.csv` — Elo ratings for all teams throughout the 2024/25 season  
-- `top_[pos]_players.csv` — Top 3 ranked players for each selected position (FW, MF, DF)  
 - `all_[pos]_players.csv` — Full ranking of all eligible players in each selected position  
 - `win_probability_forecast.csv` — Forecasted win probabilities for early rounds of the 2025/26 season  
 
