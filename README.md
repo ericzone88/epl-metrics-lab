@@ -131,9 +131,9 @@ Optional visualizations (PNG format) may also be generated, depending on your ch
 
 ## 🧪 Unit Testing
 Run tests from the project root:
-    ```bash
+```bash
     PYTHONPATH=. pytest
-    ```
+```
 
 ## 👤 Author
 
