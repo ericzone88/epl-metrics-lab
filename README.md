@@ -46,6 +46,9 @@ For team analysis, the system utilizes traditional Elo rating updates for histor
 - **Manual Data Processing from FBref**  
   Due to failed attempts at web scraping, player data was manually collected via copy and paste and rigorously cleaned using Python. Processing steps included standardizing field names, resolving conflicts, deduplicating records, unifying position labels, and ensuring schema consistency for accurate analysis.
 
+## ⚠️ Assumptions and Limitations
+
+This analysis is based entirely on data from the 2024/25 Premier League season and does **not** account for player transfers, managerial changes, or tactical shifts occurring during the 2025 summer off-season.
 
 ## 🛠 Tech Stack
 
@@ -55,7 +58,6 @@ For team analysis, the system utilizes traditional Elo rating updates for histor
 - **Programming Paradigm**: OOP (abstract base class and subclasses)
 - **IDE**: PyCharm
 - **Version Control**: Git + GitHub
-
 
 ## 🗂️ Project Structure
 
@@ -85,7 +87,6 @@ epl_metrics_lab/
 └── README.md
 ```
 
-
 ## 📂 Output Samples
 
 After running `main.py`, an `outputs/` folder will be created containing analysis results based on your selections.
@@ -110,7 +111,6 @@ Optional visualizations (PNG format) may also be generated, depending on your ch
 #### 🧾 Forward Rankings Table
 ![fw_all_rankings.png](images/fw_all_rankings.png)
 
-
 ## 🚀 How to Run
 
 1. **Clone this repository**  
@@ -129,6 +129,10 @@ Optional visualizations (PNG format) may also be generated, depending on your ch
    python main.py
    ```
 
+## 🧪 Unit Testing
+Run tests from the project root:
+```bash
+PYTHONPATH=. pytest
 
 ## 👤 Author
 
